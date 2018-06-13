@@ -22,9 +22,11 @@ loss_and_metrics = model.evaluate(X_test, Y_test, batch_size=32)
 
 print('loss_and_metrics : ' + str(loss_and_metrics))
 
+model.save('mnist_mlp_model.h5')
+model = load_model('mnist_mlp_model.h5')
+
+
+### below code must run in separately cell.
 %matplotlib inline
 
 SVG(model_to_dot(model, show_shapes=True).create(prog='dot', format='svg'))
-
-model.save('mnist_mlp_model.h5')
-model = load_model('mnist_mlp_model.h5')
